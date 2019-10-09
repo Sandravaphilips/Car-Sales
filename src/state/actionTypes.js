@@ -1,0 +1,5 @@
+
+const BUY_ITEM = 'BUY_ITEM';
+const REMOVE_FEATURE = 'REMOVE_FEATURE';
+
+export {BUY_ITEM, REMOVE_FEATURE};
