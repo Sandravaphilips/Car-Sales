@@ -1,10 +1,10 @@
 
 import * as types from "./actionTypes";
 
-function buyItem() {
-    return {type: types.BUY_ITEM}
+export function buy_Item(selectedItem, newStoreState) {
+    return {type: types.BUY_ITEM, payload:{features: selectedItem, store: newStoreState}}
 }
 
-function removeFeature() {
-    return {type: types.REMOVE_FEATURE}
+export function remove_Feature(selectedItem, newStoreState) {
+    return {type: types.REMOVE_FEATURE, payload:{features: selectedItem, store: newStoreState}}
 }

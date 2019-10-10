@@ -1,4 +1,4 @@
-
+import * as types from "./actionTypes";
 
 const initialState = {
     additionalPrice: 0,
@@ -19,6 +19,10 @@ const initialState = {
 
 export function reducer(state = initialState, action) {
     switch(action.type) {
+        case types.BUY_ITEM:
+            return {...state, car: {...state.car, features: action.payload.features}, store: [action.payload.store]}
+        case types.REMOVE_FEATURE:
+            return {...state, car: {...state.car, features: action.payload.features}, store: [action.payload.store]}
         default: return state
     }
 }
