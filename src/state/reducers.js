@@ -19,7 +19,7 @@ const initialState = {
 
 export function reducer(state = initialState, action) {
     switch(action.type) {
-        case types.BUY_ITEM:
+        case types.ADD_FEATURE:
             return {...state, car: {...state.car, features: state.car.features.concat(action.payload)}, store: state.store.filter(item => item.id !== action.payload.id)}
         case types.REMOVE_FEATURE:
             return {...state, car: {...state.car, features: state.car.features.filter(item => item.id !== action.payload.id)}, store: state.store.concat(action.payload)}
