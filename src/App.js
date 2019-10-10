@@ -25,22 +25,14 @@ const App = ({buy_Item, remove_Feature, car, additionalPrice, store}) => {
   //   ]
   // };
 
-  const removeFeature = id => {
+  const removeFeature = feature => {
     // dispatch an action here to remove an item
-    const removedFeature = car.features.filter(item=> item.id === id);
-    const newStoreState = store.concat(removedFeature);
-    const newFeatureState = car.features.filter(item => item.id !== id);
-
-    remove_Feature(newFeatureState, newStoreState)
+    remove_Feature(feature)
   };
 
-  const buyItem = id => {
+  const buyItem = feature => {
     // dipsatch an action here to add an item
-    const itemToBuy = store.filter(item=> item.id === id);
-    const newStoreState = store.filter(item => item.id !== id);
-    const newFeatureState = car.features.concat(itemToBuy);
-
-    buy_Item(newFeatureState, newStoreState)
+    buy_Item(feature)
   };
 
   return (
@@ -57,13 +49,13 @@ const App = ({buy_Item, remove_Feature, car, additionalPrice, store}) => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    additionalPrice: state.additionalPrice,
-    car: state.car,
-    store: state.store
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     additionalPrice: state.additionalPrice,
+//     car: state.car,
+//     store: state.store
+//   }
+// }
 
-export {App}
-export default connect(mapStateToProps, actionCreators)(App);
+
+export default connect(state=> state, actionCreators)(App);
